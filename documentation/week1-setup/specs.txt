@@ -1,0 +1,22 @@
+
+/documentation
+  /week1-setup
+    #specs.txt
+
+PROJECT SPECIFICATIONS:
+=======================
+  - Ruby Group Managers to make a group
+  - show profile
+  - search group
+  - join group
+  - login
+  - view member
+  - edit profile
+  - view all groups
+
+                                   |group|
+  group has many memberships          ^
+  user has many memberships      |membership|
+                                      v
+                                    |user|
+

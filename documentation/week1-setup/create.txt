@@ -1,0 +1,45 @@
+
+/documentation
+  /week1-setup
+    #create.txt
+
+BUILDING THE PROJECT:
+You have a couple choices when building the project.
+
+  1. You can fork and clone the project from GitHub which is suggested
+     for a good starting point and the most recent state of the project.
+     To learn how to fork and clone a GitHub project see:
+     https://help.github.com/articles/fork-a-repo
+   
+  2. You can create the project by hand:
+
+     #create a new project without a default testing framework
+     rails new rubyusergrouporg -T
+
+     #cd into new project directory
+     cd rubyusergrouporg
+
+     #install rspec using current environment (bundle exec)
+     bundle exec rails g rspec:install
+
+     #update Gemfile to include rspec-rails and capybara
+
+       group :test, :development do
+         gem 'rspec-rails'
+         gem 'capybara'
+       end
+
+     #build scaffolding for the new application
+     rails generate scaffold user name email hashed_password
+     rails generate scaffold group name profile:text established_on
+     rails generate scaffold membership user_id group_id
+
+     #delete Rails index page
+     rm public/index.html 
+
+     #set default route
+     root :to => '/#index'
+
+     #create the database from scaffold
+     rake db:migrate
+
