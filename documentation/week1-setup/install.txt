@@ -1,0 +1,68 @@
+
+/documentation
+  /week1-setup
+    #install.txt
+
+INSTALLATION REQUIREMENTS:
+==========================
+  - worthy of mention for a point and click Rails template generator:
+
+      railswizard.org - A online GUI based template generator for building 
+                        a new project template
+
+  - create a GitHub account
+    
+      Go to https://github.com/
+
+  - install Git
+  
+      Go to http://git-scm.com/downloads 
+
+  - install RVM and Ruby 1.9.3
+
+      (taken from ruby-lang.org/en/downloads)
+      RVM is only available for Mac OS X, Linux, or any UNIX-like 
+      operating system. Windows users should check out pik for a 
+      similar project, or consider using RubyInstaller. 
+
+      To learn more about RVM see:
+      https://rvm.io/
+
+      For information about how to install RVM see their website:
+      https://rvm.io/rvm/install/ 
+     
+      If you have git and curl installed you can install RVM from
+      the command line with:
+         curl -L https://get.rvm.io | bash -s stable --ruby
+
+      To learn more about various ways to install Ruby for
+      different systems see:
+      http://www.ruby-lang.org/en/downloads/
+ 
+      For Windows users(taken from ruby-lang.org/en/downloads)
+      If you’re on Windows, there’s a great project to help you 
+      install Ruby: RubyInstaller at http://rubyinstaller.org
+      It gives you everything you need to set up a full Ruby 
+      development environment on Windows.
+      If you are installing Ruby in order to use Rails, you should 
+      use RailsInstaller at http://railsinstaller.org which uses 
+      RubyInstaller but gives you extra tools that help with Rails 
+      development.
+
+  - install RubyGems
+
+       Go to http://rubygems.org/pages/download
+
+  - install Rails 3.2 with RubyGems but without ri or rdoc
+  
+       gem install rails --no-ri --no-rdoc
+      
+  - create a new gemset:
+    
+       rvm gemset create rubyuser
+       
+  - select the gemset
+   
+       rvm gemset use rubyuser
+
+
