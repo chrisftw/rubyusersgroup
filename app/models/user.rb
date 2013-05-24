@@ -1,3 +1,27 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :hashed_password, :name
+  # Include default devise modules. Others available are:
+  # :token_authenticatable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, #:confirmable,
+         :omniauthable, :omniauth_providers => [:facebook]
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name,
+  								:uid, :provider, :github_account
+
+	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+	# what if a person is already logged in without facebook????
+  	user = User.where(:provider => auth.provider, :uid => auth.uid).first
+  	unless user
+    	user = User.create(name:auth.extra.raw_info.name,
+                         provider:auth.provider,
+                         uid:auth.uid,
+                         email:auth.info.email,
+                         password:Devise.friendly_token[0,20]
+                         )
+  	end
+  	user
+	end
+
 end

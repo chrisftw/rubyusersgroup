@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<%= render "shared/auth" %>
+
+<% flash.each do | name, message | %>
+	<%= content_tag :div, message, :id => "flash-#{name}" %>
+<% end %>
+
 <%= yield %>
 
 </body>
