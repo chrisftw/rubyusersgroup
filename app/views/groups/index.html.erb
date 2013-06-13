@@ -1,27 +1,10 @@
-<h1>Listing groups</h1>
+<% if current_user %>
+  <h1>My Groups</h1>
+  <%= render 'groups/group_table', :object => current_user.groups %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Profile</th>
-    <th>Established on</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @groups.each do |group| %>
-  <tr>
-    <td><%= group.name %></td>
-    <td><%= group.profile %></td>
-    <td><%= group.established_on %></td>
-    <td><%= link_to 'Show', group %></td>
-    <td><%= link_to 'Edit', edit_group_path(group) %></td>
-    <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <%= link_to 'New Group', new_group_path %>
 <% end %>
-</table>
+<% puts @groups.inspect %>
+<h1>All Groups</h1>
+<%= render :partial => 'groups/group_table', :object => @groups %>
 
-<br />
-
-<%= link_to 'New Group', new_group_path %>

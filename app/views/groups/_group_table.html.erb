@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Profile</th>
+    <th>Established on</th>
+    <th>Actions</th>
+  </tr>
+  <% puts group_table.inspect %>
+  <%= render :partial => 'groups/group_table_row', :collection => group_table %>
+</table>
