@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rubyusersgroup</title>
+  <title>Ruby Users Group</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag :application %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= render "shared/auth" %>
 
 <% flash.each do | name, message | %>
-	<%= content_tag :div, message, :id => "flash-#{name}" %>
+  <%= content_tag :div, message, :id => "flash-#{name}" %>
 <% end %>
-
 <%= yield %>
 
 </body>
