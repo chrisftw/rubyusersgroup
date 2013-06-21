@@ -40,7 +40,7 @@ class MembershipsController < ApplicationController
   # POST /memberships
   # POST /memberships.json
   def create
-    @membership = Membership.new(params[:membership])
+    @membership = Membership.new(:group_id => params[:group_id], :user_id => current_user.id, :permission_mask => 1)
 
     respond_to do |format|
       if @membership.save

@@ -1,6 +1,6 @@
 <% if current_user %>
   <h1>My Groups</h1>
-  <%= render 'groups/group_table', :object => current_user.groups %>
+  <%= render :partial => 'groups/group_table', :object => current_user.groups %>
 
   <%= link_to 'New Group', new_group_path %>
 <% end %>

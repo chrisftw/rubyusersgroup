@@ -1,11 +1,15 @@
- <tr>
-    <td><%= group_table_row.name %></td>
-    <td><%= group_table_row.profile %></td>
-    <td><%= group_table_row.established_on %></td>
-    <td><%= link_to 'Show', group_table_row %>
-      <%= link_to 'Edit', edit_group_path(group_table_row) %>
-      <%= button_to 'Destroy', group_table_row, method: :delete, 
-      data: { confirm: 'Are you sure?' } %>
-      <%= link_to "Join", "groups/join/#{group_table_row.id}" %>
-      <%= link_to "Abandon", "groups/abandon/#{group_table_row.id}" %></td>
-  </tr>
+<tr>
+  <td><%= group_table_row.name %></td>
+  <td><%= group_table_row.profile %></td>
+  <td><%= group_table_row.established_on %></td>
+  <td><%= link_to 'Show', group_table_row %>
+    <%= link_to 'Edit', edit_group_path(group_table_row) %>
+    <%= button_to 'Destroy', group_table_row, method: :delete, 
+    data: { confirm: 'Are you sure?' } %>
+    <% if current_user.is_member_of_group?(group_table_row.id) %>
+      <%= link_to "Abandon", "groups/abandon/#{group_table_row.id}" %>
+    <% else %>
+      <%= button_to "Join", "/memberships?group_id=#{group_table_row.id}", :method => :post %>
+    <% end %>
+  </td>
+</tr>

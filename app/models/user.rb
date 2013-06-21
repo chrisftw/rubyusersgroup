@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     end
     user
   end
+  
+  def is_member_of_group?(group_id)
+    self.memberships.where(:group_id => group_id).count > 0
+  end
 end
